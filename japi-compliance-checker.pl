@@ -5482,6 +5482,22 @@ sub testSystem()
         public Integer field = 100;
     }");
     
+    # Removed_Method (Pulled up)
+    writeFile($Path_v1."/PulledUpMethod.java",
+    "package $PackageName;
+    public class PulledUpMethod {
+        public Integer removedMethod(Integer param1, String param2) { return param1; }
+    }");
+    writeFile($Path_v2."/PulledUpTo.java",
+    "package $PackageName;
+    public class PulledUpTo {
+        public Integer removedMethod(Integer param1, String param2) { return param1; }
+    }");
+    writeFile($Path_v2."/PulledUpMethod.java",
+    "package $PackageName;
+    public class PulledUpMethod extends PulledUpTo {
+    }");
+    
     # Removed_Method (Deprecated)
     writeFile($Path_v1."/RemovedDeprecatedMethod.java",
     "package $PackageName;
